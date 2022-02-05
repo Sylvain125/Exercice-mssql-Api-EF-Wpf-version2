@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Exercice.Wpf.Props.ProductControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Exercice.Wpf.Props"
+             mc:Ignorable="d" 
+             Loaded="Window_Loaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <DataGrid x:Name="grdOrder"  Height="124" HeadersVisibility="Row" SelectedItem="{Binding Path= CurrentProduct}" ItemsSource="{Binding Products}" CanUserAddRows="False" />
+
+            
+
+            <DockPanel Height="30" Margin="5">
+                <Label Content="ProductId:"/>
+                <TextBox x:Name="ProductId" IsReadOnly="True" Height="20" Width="30" Text="{Binding CurrentProduct._productId, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Content="Nom:"/>
+                <TextBox x:Name="Name" Height="20" Width="130" Text="{Binding CurrentProduct._name, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="Prix:"/>
+                <TextBox x:Name="Price" HorizontalAlignment="Left" Height="20" Width="100" Text="{Binding CurrentProduct._price, UpdateSourceTrigger=PropertyChanged}"/>
+                
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Description:"/>
+                <TextBox x:Name="Description" Height="20" Width="300" HorizontalAlignment="Left" Text="{Binding CurrentProduct._description, UpdateSourceTrigger=PropertyChanged}"/>
+                
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Image:"/>
+                <TextBox x:Name="ImageProduct" Height="20" Width="300" HorizontalAlignment="Left" Text="{Binding CurrentProduct._image, UpdateSourceTrigger=PropertyChanged}"/>
+
+            </DockPanel>
+
+            <Image Height="100" Source ="{Binding CurrentProduct._image}"/>
+            
+            <!--<Image Height="100" Source="C:\Users\aerox\Desktop\Mini-Projet\MiniProjet\Images\aa.PNG"/>-->
+            <DockPanel Height="30">
+                <Button  Content="Ajouter" Width="80" Click="Button_Ajouter" Margin="5" />
+                <Button  Content="Editer" Width="80" Click="Button_Editer" Margin="5" />
+                <Button  Content="Supprimer" Width="80" Click="Button_Supp"  Margin="5" />
+                <Button  Content="Actualiser" Click="Window_Loaded"  Margin="5" />
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

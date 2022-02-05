@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Exercice.Wpf.Props.OrdersControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Exercice.Wpf.Props"
+             mc:Ignorable="d" 
+             Loaded="Window_Loaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <DataGrid x:Name="grdOrder" Height="220" SelectedItem="{Binding Path= CurrentOrder}" ItemsSource="{Binding Orders}" CanUserAddRows="False" />
+
+
+            <DockPanel Height="30" Margin="5">
+                <Label Content="OrderId:"/>
+                <TextBox x:Name="OrderId" Height="20" IsReadOnly ="True" Width="30" Text="{Binding CurrentOrder._orderId, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Content="UserId:"/>
+                <TextBox x:Name="UsertId" Height="20" Width="30" Text="{Binding CurrentOrder._userInfoId, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="ProductId:"/>
+                <TextBox x:Name="ProductId" Height="20" Width="40" Text="{Binding CurrentOrder._productId, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="ProductQuantity:"/>
+                <TextBox x:Name="ProductQuantity" HorizontalAlignment="Left" Height="20" Width="50" Text="{Binding CurrentOrder._productQuantity, UpdateSourceTrigger=PropertyChanged}"/>
+
+
+            </DockPanel>
+            <DockPanel>
+                <Label Content="TotalTax:"/>
+                <TextBox x:Name="TotalTax" Height="20" Width="50" Text="{Binding CurrentOrder._totalTax, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="TotalShip:"/>
+                <TextBox x:Name="TotalShip" Width="50" HorizontalAlignment="Left" Height="20"  Text="{Binding CurrentOrder._totalShip, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="TotalDue:"/>
+                <TextBox x:Name="TotalDue" Width="50" HorizontalAlignment="Left" Height="20"  Text="{Binding CurrentOrder._totalDue, UpdateSourceTrigger=PropertyChanged}"/>
+
+            </DockPanel>
+
+            <DockPanel Height="30">
+                <Label Content="Date:"/>
+                <TextBox x:Name="Date" Height="20" Width="150" Text="{Binding CurrentOrder._date, StringFormat={}{0:MM/dd/yyyy}, UpdateSourceTrigger=PropertyChanged}"/>
+                <Label Content="IP:"/>
+                <TextBox x:Name="Ip" Height="20" Width="150" HorizontalAlignment="Left" Text="{Binding CurrentOrder._ip, UpdateSourceTrigger=PropertyChanged}"/>
+            </DockPanel>
+
+            <DockPanel Height="30">
+                <Button  Content="Ajouter" Width="80" Click="Button_Ajouter" Margin="5" />
+                <Button  Content="Editer" Width="80" Click="Button_Editer" Margin="5" />
+                <Button  Content="Supprimer" Width="80" Click="Button_Supp"  Margin="5" />
+                <Button  Content="Actualiser" Click="Window_Loaded"  Margin="5" />
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

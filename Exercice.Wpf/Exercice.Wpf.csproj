@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\aa.PNG" />
+    <None Remove="Images\background.gif" />
+    <None Remove="Images\Fantastic3DLogo.png" />
+    <None Remove="Images\Garage.PNG" />
+    <None Remove="Images\git.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\background.gif" />
+    <Resource Include="Images\Garage.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Exercice.Dto\Exercice.Dto.csproj" />
+    <ProjectReference Include="..\Exercice.Model\Exercice.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\aa.PNG" />
+    <Resource Include="Images\Fantastic3DLogo.png" />
+    <Resource Include="Images\git.jpg" />
+  </ItemGroup>
+
+</Project>

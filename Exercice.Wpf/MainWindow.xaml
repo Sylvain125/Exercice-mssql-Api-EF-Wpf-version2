@@ -1,0 +1,73 @@
+﻿<Window x:Class="Exercice.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exercice.Wpf"
+        xmlns:local2="clr-namespace:Exercice.Wpf.Props"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        Title="OpenProject" Height="410" Width="450" >
+    <!--<Window.Resources>
+        <local:VisibilityConverter x:Key="VisibilityConverter" />;
+    </Window.Resources>
+    <Label Content="VisibilityConverter" Visibility="{ Binding IsVisible, Converter={StaticResource VisibilityConverter}}"-->
+    <Grid>
+        <TabControl x:Name="MyTab">
+            <TabItem Header="Acceuil">
+                <Grid>
+                    <Grid.Background>
+                        <ImageBrush  ImageSource="/Images/background.gif"/>
+                    </Grid.Background>
+                    <Label HorizontalAlignment="Center" Content="Bienvenue sur mon logiciel !!" Foreground="White" FontSize="18" />
+                    
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-100" >
+                    <Label  VerticalAlignment="Center"  Content="OpenProject est un logiciel créer pour apprendre." Foreground="White" FontSize="12" />
+                    </StackPanel>
+                    
+                    <WrapPanel Margin="0,0,0,-250" VerticalAlignment="Center" HorizontalAlignment="Center" >
+
+                        <StackPanel>
+                            
+                            <Image Width="48" Source="/Images/git.jpg"></Image>
+                            <Button Margin="10" Content="Mon Git"  VerticalAlignment="center" Width="80" Click="Button_User"  />
+                            
+                      
+                            
+                        </StackPanel>
+                    </WrapPanel>
+                    
+
+                    <Button  Content="Quitter" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="80" Click="Button_Quitter" Margin="30" />
+                    
+
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="aze" Header="UserManager">
+                <Grid Background="#FFE5E5E5">
+
+                    <Label Content="Gestion des Membres" HorizontalAlignment="Center"    />
+
+                    <local2:UsersControl x:Name="UserController" />
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="OrderManager">
+                <Grid Background="#FFE5E5E5">
+                    <local2:OrdersControl x:Name="OrderController" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="ProductManager">
+                <Grid Background="#FFE5E5E5">
+                    <local2:ProductControl x:Name="ProductController" />
+                </Grid>
+            </TabItem>
+
+
+        </TabControl>
+
+    </Grid>
+</Window>
